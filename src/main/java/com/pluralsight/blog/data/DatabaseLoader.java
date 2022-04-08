@@ -29,8 +29,9 @@ public class DatabaseLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        postRepository.saveAll(randomPosts);
         IntStream.range(0,40).forEach(i->{
-            postRepository.saveAll(randomPosts);
+
             String template = templates[i % templates.length];
             String gadget = gadgets[i % gadgets.length];
 
